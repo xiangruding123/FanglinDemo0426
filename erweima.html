@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>生成二维码</title>
+		<!--都需要引入jQuery.js文件-->
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<!--<script type="text/javascript" src="js/qrcode/jquery.qrcode.min.js"></script>-->
+			
+		<!--引入上边一个文件（jquery.qrcode.min.js）或者引入下边两个文件（jquery.qrcode.js和qrcode.js）-->
+		
+		<script src="js/qrcode/jquery.qrcode.js"></script>
+		<script src="js/qrcode/qrcode.js"></script>
+		<style>
+		body{
+			text-align: center;
+		}
+		#qrcode{
+			margin:100px auto;
+		}
+		#text{
+			width: 400px;height: 200px;
+			border:1px solid #ccc;
+		}
+		</style>
+	</head>
+	<body>
+		<input type="text" id="text" placeholder="请输入要生成二维码的文本">
+		<input type="button" id="create" value="生成二维码">
+		<br>
+		<div id="qrcode"></div>
+		<script type="text/javascript">
+			$('#create').click(function(){
+					$('#qrcode').html('').qrcode({
+						text: $('#text').val()
+					});
+			})
+		</script>
+	</body>
+</html>

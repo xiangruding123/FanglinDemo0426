@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="resText">
+			<input type="text" name="username" id="username" value="中国" />
+			<input type="text" name="content" id="content" value="客服回答授课计划合肥" />
+		</div>
+		<script src="js/jquery/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript">
+		$(function(){
+	         $.ajax({
+	             type: "GET",
+	             url: "test.json",
+	             data: {username:"name", content:"content"},
+	             dataType: "json",
+	             success: function(data){
+	             		console.log(data);
+                 		console.log(data.name);
+                 		console.log(data.content);
+                 		
+	                    $('#resText').empty();   //清空resText里面的所有内容
+	                    var html = ''; 
+	                    $.each(data, function(){
+	                        //html = '<div><h6>'+data.name+'</h6><p>'+data.content+'</p></div>';
+	                        html = '<div>'+
+									'	<h6>'+data.name+'</h6>'+
+									'	<p>'+data.content+'</p>'+
+									'</div>';
+	                    });
+	                    $('#resText').html(html);
+                  }
+	         });
+		});
+		
+		</script>
+	</body>
+</html>

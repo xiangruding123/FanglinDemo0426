@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<select multiple="multiple" name="form" id="select1" style="height: 160px; width: 150px; border: 0; outline: none;">
+			<option value="1">qqqq</option>
+			<option value="2">wwww</option>
+			<option value="3">eeee</option>
+			<option value="4">rrrr</option>
+			<option value="5">tttt</option>
+			<option value="6">yyyy</option>
+			<option value="7">uuuu</option>
+			<option value="8">oooo</option>
+		</select>
+ 	
+		<select multiple="multiple" name="form2" id="select2" style="height: 160px; width: 150px; border: 0;outline: none;"></select>
+		<hr />
+		
+		<form action="" method="post">
+			你的爱好是什么？<br />
+			<labal><input type="checkbox" name="items" value="足球"/>足球</labal>
+			<labal><input type="checkbox" name="items" value="篮球"/>篮球</labal>
+			<labal><input type="checkbox" name="items" value="乒乓球"/>乒乓球</labal>
+			<labal><input type="checkbox" name="items" value="羽毛球"/>羽毛球</labal>
+			<labal><input type="checkbox" name="items" value="破气球"/>破气球</labal>
+			<br />
+			<br />
+			<input type="button" id="checkoutAll" value="全 选" />
+			<input type="button" id="checkoutNo" value="全不选" />
+			<input type="button" id="checkoutRev" value="反 选" />
+			<input type="button" id="send" value="提  交" />
+		</form>
+		<hr />
+		
+		<script src="js/jquery/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("#select1").bind("click",function(){
+					var options = $("option:selected",this);
+					options.appendTo("#select2");
+				});
+				
+				$("#select2").bind("click",function(){
+					var options = $("option:selected",this);
+					options.appendTo("#select1");
+				});
+				
+				//全选
+				$("#checkoutAll").bind("click",function(){
+					$("[name=items]:checkbox").attr("checked",true);
+				});
+				
+				//全不选
+				$("#checkoutNo").bind("click",function(){
+					$("[name=items]:checkbox").attr("checked",false);
+				});
+				
+				//反选
+				$("#checkoutRev").bind("click",function(){
+					$("[name=items]:checkbox").each(function(){
+						//$(this).attr("checked",!$(this).attr("checked"));
+						this.checked=!this.checked;
+					});
+				});
+				//提交
+				$("#send").bind("click",function(){
+					var str="你选中的是：\r\n";
+					$("[name=items]:checkbox:checked").each(function(){
+						str += $(this).val()+"\r\n";
+					});
+					alert(str);
+					
+				});
+				
+			});
+		</script>
+	</body>
+</html>

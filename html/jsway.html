@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function parseQueryString(argu){
+			  var str = argu.split('?')[1];
+			  var result = {};
+			  var temp = str.split('&');
+			  for(var i=0; i<temp.length; i++)
+			  {
+			     var temp2 = temp[i].split('=');
+			     result[temp2[0]] = temp2[1];
+			  }
+			  return result;
+			}
+			var url = "http://www.taobao.com/index.php?key=123456&name=xiangruding&value=20170308&mid=1830246&token=loyyehkvk";
+			var obj = parseQueryString(url);
+			console.log(obj);
+			console.log("mid: "+obj.mid);
+			
+			//对象转换成字符串
+			var arr1=JSON.stringify(obj)
+			console.log(arr1);
+			
+			//将字符串转换成对象 
+			var zobj=JSON.parse(arr1)
+			console.log(zobj);
+		</script>
+	</body>
+</html>

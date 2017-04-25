@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			var now=Date.parse('May 8,2017');
+			console.log("日期的毫秒数："+now);
+			
+			//Date.UTC():也可以获得时间的毫秒数，但是里面的参数不同（May 8,2017）是代表2017年5月8号，月份的基数是0
+			var utc=Date.UTC(2017,3,8);
+			console.log("utc时间毫秒数："+utc);
+			
+			//new Date(); 返回当天的日期和时间。 
+			var time1=new Date();
+			console.log("当天的日期和时间："+time1);
+			
+			//根据本地时间把 Date对象转换为字符串，并返回结果。
+			var time2=time1.toLocaleString();
+			console.log("本地时间把 Date对象转换为字符串："+time2);
+			
+			//把 Date对象转换为字符串，并返回结果。
+			var time3=time1.toString();
+			console.log("Date对象转换为字符串："+time3);
+			
+			//返回 Date 对象的原始值。
+			var time4=time1.valueOf();
+			console.log("Date对象的原始值："+time4);
+			
+			//把 Date 对象的日期部分转换为字符串，并返回结果。
+			var time5=time1.toDateString();
+			console.log("Date对象的日期部分："+time5);
+			
+			//把 Date对象的时间部分转换为字符串，并返回结果。
+			var time6=time1.toTimeString();
+			console.log("Date对象的时间部分："+time6);
+			
+			//根据本地时间把 Date 对象的日期部分转换为字符串，并返回结果。
+			var time7=time1.toLocaleDateString();
+			console.log("本地时间的日期部分："+time7);
+			
+			//根据本地时间把 Date 对象的时间部分转换为字符串，并返回结果。
+			var time8=time1.toLocaleTimeString();
+			console.log("本地时间的时间部分："+time8);
+			
+			//根据世界时 (UTC) 把 Date 对象转换为字符串，并返回结果。
+			var time9=time1.toUTCString();
+			console.log("世界时间UTC："+time9);
+			
+			//返回指定的日期和时间距 1970 年 1 月 1 日午夜（GMT 时间）之间的毫秒数。
+			var time10=time1.getTime();     
+			console.log("时间距离毫秒数："+time10);
+			
+			//返回一个表示年份的 4 位数字。
+			var time11=time1.getFullYear();    
+			console.log("年："+time11);
+			
+			//返回月份字段，使用本地时间。返回值是 0（一月） 到 11（十二月） 之间的一个整数。
+			var time12=time1.getMonth();     
+			console.log("月份："+time12);
+			
+			//返回月份中的某一天，使用本地时间。返回值是 1 ~ 31 之间的一个整数。
+			var time13=time1.getDate();
+			console.log("日期："+3);
+			
+			//dateObject.getDay() dateObject 所指的星期中的某一天，使用本地时间。返回值是 0（周日） 到 6（周六） 之间的一个整数。
+			var time14=time1.getDay();
+			console.log("星期："+time14);
+			
+			//getHours()返回时间的小时字段。
+			var time15=time1.getHours();
+			console.log("小时："+time15);
+			
+			//getHours()返回时间的分钟字段。
+			var time16=time1.getMinutes();
+			console.log("分钟："+time16);
+			
+			//getHours()返回时间的秒钟字段。
+			var time17=time1.getSeconds(); 
+			console.log("秒钟："+time17);
+
+		</script>
+	</body>
+</html>

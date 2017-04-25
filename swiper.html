@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="Swiper-3.4.1/dist/css/swiper.min.css"/>
+		<style type="text/css">
+			.swiper-container {
+			    width: 600px;
+			    height: 300px;
+			}  
+			.swiper-slide{
+				background: blueviolet;	
+				color: #FFF;
+				line-height: 300px;
+			    font-size: 20px;
+			    text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="swiper-container">
+		    <div class="swiper-wrapper">
+		        <div class="swiper-slide">Slide 1</div>
+		        <div class="swiper-slide">Slide 2</div>
+		        <div class="swiper-slide">Slide 3</div>
+		        <div class="swiper-slide">Slide 4</div>
+		        <div class="swiper-slide">Slide 5</div>
+		        <div class="swiper-slide">Slide 6</div>
+		        <div class="swiper-slide">Slide 7</div>
+		        <div class="swiper-slide">Slide 8</div>
+		    </div>
+		    <!-- 如果需要分页器(下边的点点) -->
+		    <div class="swiper-pagination"></div>
+		    
+		    <!-- 如果需要导航按钮（左右的箭头按钮） -->
+		    <div class="swiper-button-prev"></div>
+		    <div class="swiper-button-next"></div>
+		    
+		    <!-- 如果需要滚动条（下边的滚动条） -->
+		    <div class="swiper-scrollbar"></div>
+		</div>
+		<!--导航等组件可以放在container之外-->
+		<script src="js/jquery/jquery-2.1.4.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="Swiper-3.4.1/dist/js/swiper.jquery.min.js"></script>
+		<script>        
+		  var mySwiper = new Swiper ('.swiper-container', {
+		  	//initialSlide  设定初始化时slide的索引(即开始的位置为第几个)。
+		  	initialSlide :2,    //把第三个作为首个显示
+		  	
+		  	//direction: Slides的滑动方向，可设置水平(horizontal)或垂直(vertical)。
+		    //direction:'vertical',   //垂直方向滑动
+		    direction:"horizontal",   //水平方向滑动
+		    
+		    //自动切换的时间间隔（单位ms），不设定该参数slide不会自动切换。
+		    autoplay : 3000,
+		    
+		    //滑动速度，即slider自动滑动开始到结束的时间（单位ms），也是触摸滑动时释放至贴合的时间。默认：300
+		    speed: 300,
+		    
+		    //设置为true 则开启loop模式
+		    loop : true,
+			slidesPerView : "auto",    //设置slider容器能够同时显示的slides数量(carousel模式)。可以设置为number或者 'auto'则自动根据slides的宽度来设定数量。
+			loopedSlides :8,           //在loop模式下使用slidesPerview:'auto',还需使用该参数设置所要用到的loop个数。
+		    
+		    // 如果需要分页器
+		    pagination: '.swiper-pagination',
+		    paginationClickable :true,  //此参数设置为true时，点击分页器的指示点分页器会控制Swiper切换。
+		    
+		    // 如果需要前进后退按钮
+		    nextButton: '.swiper-button-next',      //前进按钮的css选择器或HTML元素。
+		    prevButton: '.swiper-button-prev',      //后退按钮的css选择器或HTML元素。
+		    
+		    // 如果需要滚动条
+		    scrollbar: '.swiper-scrollbar',  //添加滚动条
+		    scrollbarHide : false,           //滚动条是否自动隐藏。默认：true会自动隐藏。
+			scrollbarDraggable : true ,      //该参数设置为true时允许拖动滚动条。
+			scrollbarSnapOnRelease : true ,  //如果设置为true，释放滚动条时slide自动贴合。
+			
+			//zoom  
+			//焦距功能：双击slide会放大，并且在手机端可双指触摸缩放。
+			//需要在slide中增加类名swiper-zoom-container，结构如下：
+			//<div class="swiper-slide"> <div class="swiper-zoom-container"> <img src="path/to/image"> </div> </div>
+			//zoom : true,
+		    
+		  })        
+		  </script>
+	</body>
+</html>

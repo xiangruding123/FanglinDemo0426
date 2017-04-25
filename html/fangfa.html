@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		
+			//every():对数组每一项都遍历，然后每一项都符合要求的话则返回true，否则就返回false
+
+			//some():对数组每一项都遍历，其中有一项符合要求则返回true，否则返回false
+			
+			//filter():对数组的每一项都遍历，返回其中要求的元素组成的数组
+			
+			//map():对数组每一项都遍历并且运行给定的函数，返回每次函数调用的结果的数组；
+			
+			//forEach():对数组每一项都遍历并且运行给定的函数，但是没有返回值
+			
+			//reduce():对数组每一项进行遍历，并返回数组中所有值的和
+			
+			//reduceRight():与reduce()的作用一样，但是数组遍历是从后往前，反方向
+			
+			var array=[1,2,3,4];
+			var everyResult=array.every(function(item,index,array){
+			　　return (item>2);
+			})
+			console.log(everyResult);//返回false
+			
+			var someResult=array.some(function(item,index,array){
+			　　return (item>2);
+			})
+			console.log(someResult);//返回ture;
+			
+			var filterResult=array.filter(function(item,index,array){
+			　　return (item>2);
+			})
+			console.log(filterResult);//[3,4];
+			
+			var mapResult=array.map(function(item,index,array){
+			　　return item*2;
+			})
+			console.log(mapResult);//[2,4,6,8,10];
+			
+			var reduceResult=array.reduce(function(prev,cur,index,array){
+			　　return prev+cur;
+			})
+			console.log(reduceResult);//10
+			
+		</script>
+	</body>
+</html>

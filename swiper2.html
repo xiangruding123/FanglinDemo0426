@@ -1,0 +1,57 @@
+'.'<!--[if IE]>
+	
+<![endif]--><!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <link rel="stylesheet" type="text/css" href="Swiper-3.4.1/dist/css/swiper.min.css"/>
+        <style type="text/css">
+            .swiper-container {
+            	margin-top: 200px;
+                width: 600px;
+                height: 300px;
+                background: blueviolet;    
+            }  
+            .swiper-slide{
+            	width: 25%;
+            	height: 150px;
+            	background: magenta;
+                color: #FFF;
+                line-height: 150px;
+                font-size: 20px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"> 1</div>
+                <div class="swiper-slide"> 2</div>
+                <div class="swiper-slide"> 3</div>
+                <div class="swiper-slide"> 4</div>
+                <div class="swiper-slide"> 5</div>
+                <div class="swiper-slide"> 6</div>
+                <div class="swiper-slide"> 7</div>
+                <div class="swiper-slide"> 8</div>
+                <div class="swiper-slide"> 9</div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+        <script src="js/jquery/jquery-2.1.4.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="Swiper-3.4.1/dist/js/swiper.jquery.min.js"></script>
+        <script>        
+          var mySwiper = new Swiper ('.swiper-container', {
+            slidesPerView : 4,
+			slidesPerGroup : 4,
+			
+			slidesPerColumn : 2,
+			slidesPerColumnFill : 'row',
+			pagination: '.swiper-pagination',
+			autoplayDisableOnInteraction: false
+            
+          })        
+          </script>
+    </body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			li{
+				height: 100px;
+			}
+			li:nth-child(even){
+				background: magenta;
+			}
+			li:nth-child(odd){
+				background: aqua;
+			}
+			
+			/*回到顶部*/
+			.top{
+				width: 100px;
+				height: 100px;
+				background: magenta;
+				position: fixed;
+				right: 50px;
+				bottom: 100px;
+			}
+			html,body{
+				height: 20000px;
+			}
+		</style>
+	</head>
+	<body>
+		<!--<div id="peanutButter" >
+			<div id="jelly" class=".jellyTime" ></div>
+		</div>
+		
+		<div id="colors">
+			<ul>
+				<li id="a"></li>
+				<li id="0"></li>
+				<li id="mm"></li>
+			</ul>
+		</div>
+		
+		
+		<ul id="pancakes" >
+	         <li>first</li>
+	         <li>second</li>
+	         <li>third</li>
+	         <li>fourth</li>
+	         <li>fifth</li>
+		</ul>-->
+		
+		<!--<ul id="testList" >
+		   <li>Item</li>
+		   <li>Item</li>
+		   <li>Item</li>
+		   <li>Item</li> 
+		   <li>Item</li>
+		   <li>Item</li>
+		   <li>Item</li>
+		   <li>Item</li>
+		   <li>Item</li>
+		</ul>-->
+		
+		
+		<!--<div>111</div>
+		<div>222</div>
+		<div>3333333</div>
+		<div>444</div>
+		<div>555</div>
+		<div>666</div>
+		<div>777</div>-->
+		
+		<a class="top" href="#">Back to top</a>
+		
+		<img src="img/6394.png"/>
+		<img src="img/6394.png"/>
+		<img src="img/6394.png"/>
+		<img src="img/6394.png"/>
+		
+		
+		
+		<script src="js/jquery/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript">
+//			var array = ["Aaa","Bbbb","Cccc"];
+//			$.each(array, function(i){
+//			    //array[i] = i;
+//			    console.log(i+" : "+array[i]);
+//			});
+			
+//			 var arr = ["aaa","bbb","ccc"];
+//		     for(var i=0;i<arr.length;i++){
+//		         //arr[i] = i;
+//		         console.log(i+" : "+arr[i]);
+//		     }
+
+
+//			// 打印list中的li的id
+//			$('#colors li' ).each(function(){
+//				//将$(this).attr('id')方法替换为直接通过ID属性访问
+//				console.log(this.id);
+//			})
+//
+//			//测试程序
+//			var iterations = 10000,i;
+//			
+//			//--------------------------------------------
+//			//Case 1: 很慢
+//			console.time('Fancy');
+//			for (i = 0; i < iterations; i++) {
+//			    $('#peanutButter div:first');
+//			}
+//			console.timeEnd('Fancy');
+//			
+//			//--------------------------------------------
+//			//Case 2: 比较好，但仍然很慢
+//			console.time('Parent-child');
+//			for (i = 0; i < iterations; i++) {
+//			    $('#peanutButter div');
+//			}
+//			console.timeEnd('Parent-child');
+//			//--------------------------------------------
+//			//Case 3: 一些浏览器会比较快
+//			console.time('Parent-child by class');
+//			for (i = 0; i < iterations; i++) {
+//			    // 通过后代Class选择器
+//			    $('#peanutButter .jellyTime');
+//			}
+//			console.timeEnd('Parent-child by class');
+//			
+//			//--------------------------------------------
+//			//Case 4: 更好的方式 
+//			console.time('By class name');
+//			for (i = 0; i < iterations; i++) {
+//			    // 直接通过Class选择器
+//			    $('.jellyTime');
+//			}
+//			console.timeEnd('By class name');
+//			
+//			//--------------------------------------------
+//			//Case 5: 推荐的方式 ID选择器
+//			console.time('By id');
+//			for (i = 0; i < iterations; i++) {
+//			    $('#jelly');
+//			}
+//			console.timeEnd('By id');
+//
+//
+//	        var pancakes = $('#pancakes li');
+//	        pancakes.eq(0).remove().end()
+//	        .eq(1).remove().end()
+//	        .eq(2).remove().end();
+//
+//
+//
+//			var arr = $('li'),
+//			    iterations = 100000;
+//			//------------------------------
+//			// Array实现：    
+//			console.time('Native Loop');
+//			for (var z = 0; z < iterations; z++) {
+//			    var length = arr.length;
+//			    for (var i = 0; i < length; i++) {
+//			        arr[i];
+//			    }
+//			}
+//			console.timeEnd('Native Loop');
+//			
+//			//------------------------------
+//			// each实现：    
+//			console.time('jQuery Each');
+//			for (z = 0; z < iterations; z++) {
+//			    arr.each(function(i, val) {
+//			        this;
+//			    });
+//			}
+//			console.timeEnd('jQuery Each');
+//		     
+//		     
+//		     console.time('array');
+//		     var array = ["Aaa","Bbbb","Cccc"];
+//			$.each(array, function(i){
+//			    //array[i] = i;
+//			    console.log(i+" : "+array[i]);
+//			});
+//		     console.timeEnd('array');
+//		     
+//		     
+//		     console.time('arr');
+//		     var arr = ["aaa","bbb","ccc"];
+//			for(var i=0;i<arr.length;i++){
+//			    //arr[i] = i;
+//			    console.log(i+" : "+arr[i]);
+//			}
+//		     console.timeEnd('arr');
+//
+//			$.extend({
+//			    min: function(a, b){return a < b?a:b; },
+//			    max: function(a, b){return a > b?a:b; }
+//			}); 
+//			
+//			var m=10,
+//				n=30;
+//		    console.log("m=10,n=30,max="+$.max(m,n)+",min="+$.min(m,n));
+//		     
+//		    
+//		    var a = $("div").eq(2).html();     //调用jquery对象的方法
+//			var b = $("div").get(2).innerHTML; //调用dom的方法属性
+//			
+//			console.log(a);
+//			console.log(b);
+//			
+//			
+//			console.log($.trim(" hello, how are you? "));
+
+			// 回到顶部   500ms时间
+			$('.top').click(function (e) {
+			  e.preventDefault();
+			  $('html, body').animate({scrollTop: 0}, 500);
+			});
+			
+			
+			$('img').load(function () {
+			　　console.log("image load successful");
+			});
+			
+			
+			
+		</script>
+	</body>
+</html>

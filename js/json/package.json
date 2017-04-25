@@ -1,0 +1,18 @@
+{
+	"result": [
+		{
+			"area_id": "535",
+			"area_name": "美国",
+			"pid": "45055"
+		},
+		{
+			"area_id": "536",
+			"area_name": "加拿大",
+			"pid": "45055"
+		}
+	],
+	"error": "0",
+	"msg": "",
+	"total": 0,
+	"hasmore": false
+}

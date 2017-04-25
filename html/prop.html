@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{-webkit-tap-highlight-color:rgba(0,0,0,0);}
+		</style>
+	</head>
+	<body>
+		<div class="time">
+			<span class="days"></span>days:
+			<span class="h"></span>hour:
+			<span class="s"></span>sec:
+			<span class="m"></span>min
+		</div>
+		<script type="text/javascript" src="../js/jquery/jquery-1.11.3.min.js" ></script>
+		<script type="text/javascript">
+		
+		function GetRTime(){
+			commitTimeDate = new Date("2017/03/15 00:00:00").getTime() + 24*60*60*1000;//截止时间
+			myDate = new Date();//获取当前时间
+			currentTime=myDate.getTime();//当前时间换成毫秒
+			deadlineTime = commitTimeDate -  currentTime;//时间差
+			
+			var reminderHour = Math.floor(deadlineTime / (1000 * 60 * 60));//倒计时要写的小时
+			var days = parseInt(reminderHour/24);
+			var hours = reminderHour%24;
+			var reminderSecond = Math.floor(deadlineTime / (1000 * 60)- reminderHour*60);//倒计时要填的分钟
+			var reminderMinute = Math.floor(deadlineTime / 1000 - reminderSecond*60 - reminderHour*60*60);//倒计时要填的秒
+			
+			$(".days").html(days);
+			$(".h").html(hours);
+			$(".s").html(reminderSecond);
+			$(".m").html(reminderMinute);
+		}
+		//GetRTime();
+		setInterval(GetRTime,0);
+		</script>
+	</body>
+</html>
+

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				width: 100%;
+				height: 10000px;
+			}
+			#totop{
+				width: 50px;
+				height: 50px;
+				line-height: 50px;
+				background: magenta;
+				font-size: 20px;
+				position: fixed;
+				right: 50px;
+				bottom: 50px;
+			}
+		</style>
+	</head>
+	<body>
+	</body>
+	<script src="js/jquery/jquery-1.8.3.min.js" ></script>
+	<script>
+	
+		//写在common.js文件中用来调用即可
+		//1获取滚动条当前的位置
+	    function getScrollTop() {
+	        var scrollTop = 0;
+	        if (document.documentElement && document.documentElement.scrollTop) {
+	            scrollTop = document.documentElement.scrollTop;
+	        } else if (document.body) {
+	            scrollTop = document.body.scrollTop;
+	        }
+	        return scrollTop;
+	    };
+	    
+    	//2获取文档完整的高度
+	    function getScrollHeight() {
+	        return Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+	    };
+    
+		//3回到顶部
+		function toTop(n) {
+	        $(window).on('scroll', function() {
+	            //console.log(getScrollTop()+"!"+getScrollHeight());
+	            if ($("#totop").size() > 0) {
+	                if (getScrollTop() < $(window).height() * n) {
+	                    $("#totop").remove();
+	                }
+	            } else {
+	                if (getScrollTop() >= $(window).height() * n) {
+	                    $("body").after("<div id='totop'>totop</div>");
+	                    //插入了新标签 ，记得添加样式！
+	                    $("#totop").on('click', function() {
+	                        scroll(0,200);
+	                    });
+	                }
+	            }
+	        });
+	    };
+	    
+	    
+	    //xxx.js文件来执行
+	    $(function(){
+		    toTop(2);
+		})
+	</script>
+</html>

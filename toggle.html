@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			i{
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="a">aaaaaaaaaa<strong>ssssssssss</strong></div>
+		<p class="b">bbbbbbbbbbbb<strong>ssssssssss</strong></p>
+		<b class="c">cccccccccccc<strong>ssssssssss</strong></b>
+		<i class="d">iiiiiiiiiiii<strong>ssssssssss</strong></i>
+		<a href="">ddddddd</a>
+		<input class="e" type="text" name="name" value="mmmmmmmm" />
+		
+		<script src="js/jquery/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript">
+		$(function(){
+			var a = $(".a").html();
+			
+			var b = $(".b").text();
+			
+			var e = $(".e").val();
+			
+			var f = $("i").css({"background":"#000", "color":"white", "opacity":"1.0"});
+			console.log(f);
+			
+			$("a").bind("click",function(){
+				console.log(event.type);
+				return false;
+			});
+			
+			
+		});
+		
+		</script>
+	</body>
+</html>

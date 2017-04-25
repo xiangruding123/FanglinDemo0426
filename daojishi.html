@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			ul{
+				background: aqua;
+			}
+			li{
+				display: inline-block;
+			}
+		</style>
+	</head>
+	<body>
+	</body>
+		<ul>
+			<li class="sk-h"></li> 时
+			<li class="sk-m"></li> 分
+			<li class="sk-s"></li> 秒
+		</ul>
+	<script src="js/jquery/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript">
+		//需要的地方调用
+		achieveTime(3610);
+		//1h=60m=360s
+		//3600s/60=60m   60m/60=1h    那么最开始的时候显示的数据为  01 时 00 分 00 秒
+		
+		//秒杀倒计时
+	    function achieveTime(countdownTime){
+	    	var timeDown;
+	    	clearInterval(timeDown);
+	    	var time = countdownTime;
+	    	if(time>=0){
+				showTime(time);
+				timeDown = setInterval(function(){
+					--time ;
+					showTime(time);
+					if(time==0){
+						clearInterval(timeDown);
+					}
+				},1000);
+			}else{
+				$(".sk-h").text('00');
+		        $(".sk-m").text('00');
+		        $(".sk-s").text('00');
+			}
+	    }
+		
+		function showTime(t){
+	        var h = Math.floor(t/60/60%24);
+	        var m = Math.floor(t/60%60);
+	        var s = Math.floor(t%60);
+	        if(h<10){
+	        	h = "0"+h
+	        }
+	        if(m<10){
+	        	m = "0"+m
+	        }
+	        if(s<10){
+	        	s = "0"+s
+	        }
+	        $(".sk-h").text(h);
+	        $(".sk-m").text(m);
+	        $(".sk-s").text(s);
+	    }
+
+	</script>
+</html>

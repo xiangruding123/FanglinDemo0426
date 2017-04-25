@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.fh-link-bar {
+			    border-top: none;
+			}
+			.fh-link-bar {
+			    background-color: #fff;
+			    border: 1px solid #eaeaea;
+			    border-left: none;
+			    border-right: none;
+			    padding: 10px;
+			    height: 50px;
+			    line-height: 30px;
+			    font-size: 14px;
+			}
+			#personsex{
+				float: right;
+			}
+			.personsex {
+				background: magenta;
+			    width: 150px;
+			    height: 180px;
+			    line-height: 40px;
+			    text-align: center;
+			    border-radius: 2px;
+			    z-index: 104;    /*层级关系为104*/
+			    /*只是用来控制位置的*/
+			    position: absolute;
+			    margin: 100px auto;
+			    font-size: 20px;
+			    left: 0;
+			    right: 0;
+			    top: 0;
+			    bottom: 0;
+			}
+			
+			/*一定要记得添加样式（必须）*/
+			.loading-shade {
+			    position: fixed;    /*窗口定位*/
+			    background: rgba(0,0,0,.5);    /*遮罩层的颜色*/
+			    z-index: 102;            /*层级关系为102*/
+			}
+			.loading-shade, .loading-white-shade {
+			    height: 100%;
+			    width: 100%;
+			    top: 0;
+			    left: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<!--页面上原先有的内容（用来执行点击）-->
+		<section class="fh-link-bar" id="sexlog">
+        	 	<span>性别</span>
+        	    <span class="fh-data" id="personsex">男</span>
+        </section>
+        <!--页面上原先没有的内容（用来执行点击后生成的提示框）-->
+		<div class="personsex" style="display: none;">
+        	<p data-sex="0">保密</p>
+        	<p data-sex="1">男</p>
+        	<p data-sex="2">女</p>
+        </div>
+	</body>
+	
+	<script src="js/jquery/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript">
+	
+		//添加页面遮罩
+	    function addShade() {
+	        var htmlHeight = document.body.scrollHeight || document.documentElement.scrollHeight;
+	        $("body").append('<div class="loading-shade"></div>');
+	        //$(".loading-shade").css("height",htmlHeight+"px");
+	        $(".loading-shade").css("100%");
+	    }
+	    
+	    //。。。。。。。。。。。。
+	    function addWhiteShade() {
+	        var htmlHeight = document.body.clientHeight;
+	        $("body").append('<div class="loading-white-shade"></div>');
+	        $(".loading-white-shade").css("height",htmlHeight+"px");
+	    }
+	
+	    /*删除页面遮罩*/
+	    function removeShade() {
+	        $(".loading-shade").remove();
+	    }
+	    function removeWhiteShade() {
+	        $(".loading-white-shade").remove();
+	    }
+	
+	    /*页面遮罩点击关闭弹出层
+	     * dom=>#id
+	     * type => hide || remove
+	     * */
+	    function closeDiv(dom, type) {
+	        $(".loading-shade").click(function() {
+	            type == "hide" ? $(dom).hide() : $(dom).remove();
+	            $(".loading-shade").remove();
+	        })
+	    }
+		
+		//需要调用的页面添加的js
+		$('#sexlog,#personsex').unbind("click").bind("click",function(){
+         	addShade();
+         	$('.personsex').show();
+        });
+        $('.personsex p').bind('click',function(){
+         	$('.loading-shade').remove();
+         	$('.personsex').hide();
+        });
+
+	</script>
+</html>

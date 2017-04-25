@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		
+			//charAt(index); 返回指定位置的字符，返回的字符是长度为 1 的字符串，index为字符在字符串中的下标。
+			var string='hello world'; 
+			console.log(string.charAt(6));//下标从0开始 
+			
+			//concat() 方法用于连接两个或多个字符串。
+			var string1=string.concat('-lww');
+			console.log(string1); 
+			
+			//concat() 方法用于连接两个或多个字符串。
+			var string2=string.concat('-lww','kk','!','xiangruding'); 
+			console.log(string2); 
+			
+			//substr() 在字符串中抽取从 start 下标开始的指定数目的字符。
+			var string4=string.substr(3); 
+			console.log(string4);//lo world 
+			
+			//stringObject.substr(start,length)
+			//start:必需。要抽取的子串的起始下标。必须是数值。如果是负数，那么该参数声明从字符串的尾部开始算起的位置。也就是说，-1 指字符串中最后一个字符，-2 指倒数第二个字符，以此类推。
+			//length:可选。子串中的字符数。必须是数值。如果省略了该参数，那么返回从 stringObject 的开始位置到结尾的字串。
+			var string8=string.substr(3,7);
+			console.log(string8);//lo worl
+			
+			//substring()
+			var string5=string.substring(3); 
+			console.log(string5);//lo world 
+			
+			//stringObject.substring(start,stop) 提取字符串中介于两个指定下标之间的字符。
+			//返回一个新的字符串，该字符串值包含 stringObject 的一个子字符串，其内容是从 start 处到 stop-1 处的所有字符，其长度为 stop 减 start。
+			var string9=string.substring(3,7); 
+			console.log(string9);//lo w 
+			
+			//slice() 方法可提取字符串的某个部分，并以新的字符串返回被提取的部分。
+			var string6=string.slice(3); 
+			console.log(string6)//lo world
+			
+			//stringObject.slice(start,end)
+			//返回一个新的字符串。包括字符串 stringObject 从 start 开始（包括 start）到 end 结束（不包括 end）为止的所有字符
+			var string7=string1.slice(3,7); 
+			console.log(string7);//lo w 
+			
+			//indexOf()  返回某个指定的字符串值在字符串中首次出现的位置。 如果要检索的字符串值没有出现，则该方法返回 -1
+			var string10=string.indexOf('l'); 
+			console.log(string10);//2 
+			
+			//stringObject.indexOf(searchvalue,fromindex) 
+			//该方法将从头到尾地检索字符串 stringObject，看它是否含有子串 searchvalue。开始检索的位置在字符串的 fromindex 处或字符串的开头（没有指定 fromindex 时）。如果找到一个 searchvalue，则返回 searchvalue 的第一次出现的位置。stringObject 中的字符位置是从 0 开始的。
+			//从第6个位置开始搜寻，忽略前面的字符
+			var string12=string.indexOf('o',6); 
+			console.log(string12);//7  
+			
+			//lastIndexOf()  返回一个指定的字符串值最后出现的位置，在一个字符串中的指定位置从后向前搜索。
+			var string11=string.lastIndexOf('l'); 
+			console.log(string11);//9 
+			
+			
+			//
+			var string13='hello world this is a string html you can see it'; 
+			var position=new Array(); 
+			var pos=string13.indexOf('i'); 
+			while(pos>-1){ 
+				position.push(pos); 
+				pos=string13.indexOf('i',pos+1); 
+			} 
+			console.log(position);    //所有i的位置组成的数组  
+			console.log(position[0]);
+
+
+			//trim() 去除字符串左右两端的空格
+			var string14='    hello world '; 
+			console.log(string14); 
+			var string15=string14.trim(); 
+			console.log(string15);//hello world  
+
+			//转换大小写方法 
+			var string16=string.toLocaleUpperCase(); 
+			console.log(string16);//HELLO WORLD 
+
+			var string17=string.toUpperCase(); 
+			console.log(string17);//HELLO WORLD 
+
+			var string18=string17.toLowerCase(); 
+			console.log(string18);//hello world 
+
+			var string19=string17.toLocaleLowerCase(); 
+			console.log(string19);//hello world  
+
+
+			//replace()替换方法 
+			var string20=string.replace('l','k'); 
+			console.log(string20);//heklo world将第一个匹配到的l替换成K  
+			
+			//search()方法跟indexOf()有点相似 
+			var string21=string.search('l'); 
+			console.log(string21);     //返回第一个l的位置 2  
+			
+			//split()  方法根据指定的分隔符来将字符串分成多个字符串并组成数组 
+			var string22=string.split(' '); 
+			console.log(string22);//根据指定的空格的字符串来把字符串分成多个字符串并组成数组['hello','world'] 
+			
+			
+			var string23='red,yellow,green,blue'; 
+			var string24=string23.split(',');
+			console.log(string24);//['red','yellow','green','blue']; 
+			var string25=string23.split(',',1);
+			console.log(string25);//['red'];这个数字1就代表保留一个字符串，要是3的话就保留3个字符串['red,'yellow','blue'];  
+			
+			//localeCompare()
+			var string26='red'; 
+			var string27=string26.localeCompare('yellow');
+			console.log(string27)//-1因为在字母表中y在r的后面 所有未负数-1 
+			
+			var string28=string26.localeCompare('red');
+			console.log(string28);//0因为字母相同 
+			
+			var string29=string26.localeCompare('ahh');
+			console.log(string29) //1
+			
+			//1因为字母a在前 
+			var string30=string26.localeCompare('rff');
+			console.log(string30); //-1第一个字母相同则比较第二个
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			li{
+				list-style: none;
+				line-height: 70px;
+				font-family: "微软雅黑";
+				font-size: 30px;
+				border: 1px solid #f00;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>1111111</li>
+			<li>
+				222222
+				<span>2-111111</span>
+			</li>
+			<li>333333</li>
+			<li>44444</li>
+		</ul>
+		<script src="js/jquery/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript">
+//			$(function(){
+//				$("ul li:eq(1)").unbind().bind('click',function(){
+//					console.log("还没执行remove()之前，执行的点击事件");
+//					alert("还没执行remove()之前，执行的点击事件");
+//				});
+//				//延时5000ms后执行remove();之后再把li添加到ul里
+//				setTimeout(function(){
+//					var li=$("ul li:eq(1)").remove();
+//					ul.append("li");
+//					
+//					console.log("执行remove()之后，相应的事件也被移除了！");
+//					alert("执行remove()之后，相应的事件也被移除了！");
+//				},5000);
+//				
+//			});
+			
+//			$(function(){
+//				$("ul li:eq(1)").unbind().bind('click',function(){
+//					console.log("还没执行detach()之前，执行的点击事件");
+//					alert("还没执行detach()之前，执行的点击事件");
+//				});
+//				//延时5000ms后执行detach();之后再把li添加到ul里
+//				setTimeout(function(){
+//					li=$("ul li:eq(1)").detach();
+//					//li.appendTo("ul");
+//					$("ul").append(li);
+//					
+//					console.log("执行detach()之后，相应的事件没有被移除！点击事件还可以执行");
+//					alert("执行detach()之后，相应的事件没有被移除！点击事件还可以执行");
+//				},5000);
+//			});
+
+
+			$("ul li").bind('click',function(){  
+				ul= $("ul");
+　　　　　　　　 $(this).clone(true).appendTo(ul);    //复制当前点击的节点(只能是原先页面有的li，生成的li不能点击)，并追加到<ul>元素中
+　　　　　　  });
+
+
+		</script>
+	</body>
+</html>
+
+

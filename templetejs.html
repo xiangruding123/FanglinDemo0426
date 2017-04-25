@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul id="wrap">
+			<script id="tpl" type="text/html">
+				<%if(result){%>
+					<%for(var i=0;i<result.length;i++){%>
+						<li><%=result[i].area_name%></li>
+					<%}%>
+				<%}%>
+			</script>
+		</ul>
+		<script src="js/jquery/jquery-1.8.3.min.js" ></script>
+		<script src="js/template/template.js"></script>
+		<script>
+			$(function(){
+			
+				$.ajax({
+			         type: "get", 
+			         url: "js/json/package.json",       
+			         data:{//后台需要的参数
+			         	flag:"wap"
+			         }, 
+			         dataType: "json",
+			         success: function(data){
+						var data = {
+							result: [
+								{
+									area_id: "535",
+									area_name: "美国",
+									pid: "45055"
+								},
+								{
+									area_id: "536",
+									area_name: "加拿大",
+									pid: "45055"
+								}
+							],
+							error: "0",
+							msg: "",
+							total: 0,
+							hasmore: false
+						}
+			         	
+			            if (data && data.error === "0") {
+			            	console.log(data);
+			            	var html = template.render('tpl',data);
+		    				$('#wrap').html(html);
+			            }
+			        }
+			    });
+			});
+		</script>
+	</body>
+</html>
