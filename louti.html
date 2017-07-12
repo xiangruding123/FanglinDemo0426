@@ -1,83 +1,114 @@
 <!DOCTYPE html>
 <html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-    <style>
-        *{margin: 0;padding: 0;}
-        html,body{width: 100%;height: 100%;}
-        ul,ol{list-style: none;}
-        ul{width: 100%;height: 100%;}
-        ul li{width: 100%;height: 100%;}
-        ol{position: fixed;top: 100px;left: 100px;}
-        ol li{
-            width: 50px;
-            height: 50px;
-            border: 1px solid #000;
-            margin-top: -1px;
-            text-align: center;
-            font: 400 22px/50px "simsun";
-            cursor: pointer;
-        }
-    </style>
-</head>
-<body>
-    <ul id="ul">
-        <li>男装区</li>
-        <li>女装区</li>
-        <li>童装区</li>
-        <li>孕装区</li>
-        <li>老年装区</li>
-    </ul>
-    <ol id="ol">
-        <li>男装</li>
-        <li>女装</li>
-        <li>童装</li>
-        <li>孕装</li>
-        <li>老年</li>
-    </ol>
-</body>
+
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			html,
+			body {
+				width: 100%;
+				height: 100%;
+			}
+			
+			ul,
+			ol {
+				list-style: none;
+			}
+			
+			ul {
+				width: 100%;
+				height: 100%;
+			}
+			
+			ul li {
+				width: 100%;
+				height: 100%;
+			}
+			
+			ol {
+				position: fixed;
+				top: 100px;
+				left: 100px;
+			}
+			
+			ol li {
+				width: 50px;
+				height: 50px;
+				border: 1px solid #000;
+				margin-top: -1px;
+				text-align: center;
+				font: 400 22px/50px "simsun";
+				cursor: pointer;
+			}
+		</style>
+	</head>
+
+	<body>
+		<ul id="ul">
+			<li>男装区</li>
+			<li>女装区</li>
+			<li>童装区</li>
+			<li>孕装区</li>
+			<li>老年装区</li>
+		</ul>
+		<ol id="ol">
+			<li>男装</li>
+			<li>女装</li>
+			<li>童装</li>
+			<li>孕装</li>
+			<li>老年</li>
+		</ol>
+	</body>
+
 </html>
 <script>
-    //需求：给所有盒子添加颜色，点击ol的li，页面跳转到ul中相应的li
-    //步骤：
-    //1、利用数组给所有盒子添加颜色
-    //2、缓动框架移动最顶端
-    //3、移动到指定位置（给ol中的li绑定索引值，获取对应的ul中的li距离顶端的距离，赋值给target，好让页面跳转
-    //4、屏幕滑动，记录屏幕的位置
+	//需求：给所有盒子添加颜色，点击ol的li，页面跳转到ul中相应的li
+	//步骤：
+	//1、利用数组给所有盒子添加颜色
+	//2、缓动框架移动最顶端
+	//3、移动到指定位置（给ol中的li绑定索引值，获取对应的ul中的li距离顶端的距离，赋值给target，好让页面跳转
+	//4、屏幕滑动，记录屏幕的位置
 
-    var ul = document.getElementById("ul");
-    var ol = document.getElementById("ol");
-    var ulLis = ul.children;
-    var olLis = ol.children;
-    var arr = ["pink","yellow","green","purple","orange"];
+	var ul = document.getElementById("ul");
+	var ol = document.getElementById("ol");
+	var ulLis = ul.children;
+	var olLis = ol.children;
+	var arr = ["pink", "yellow", "green", "purple", "orange"];
 
-    var timer = null,target = 0,leader = 0;
+	var timer = null,
+		target = 0,
+		leader = 0;
 
-    window.onscroll = function () {
-        //屏幕滑动，给屏幕目前所在的位置赋值。
-        leader = scroll().top;
-    }
+	window.onscroll = function() {
+		//屏幕滑动，给屏幕目前所在的位置赋值。
+		leader = scroll().top;
+	}
 
-    for(var i=0;i<olLis.length;i++){
-        //为每一个盒子上色，ul和ol中的li对应颜色
-        ulLis[i].style.backgroundColor = arr[i];
-        olLis[i].style.backgroundColor = arr[i];
+	for(var i = 0; i < olLis.length; i++) {
+		//为每一个盒子上色，ul和ol中的li对应颜色
+		ulLis[i].style.backgroundColor = arr[i];
+		olLis[i].style.backgroundColor = arr[i];
 
-        olLis[i].index = i;
-        olLis[i].onclick = function(){
-            //给目标位置赋值(小盒子对应的大盒子距离顶部的距离)
-            target = ulLis[this.index].offsetTop;
-            clearInterval(timer);
-            timer = setInterval(function(){
-                var step = (target-leader)/10;
-                step = step>0?Math.ceil(step):Math.floor(step);
-                leader = leader+step;
-                window.scrollTo(0,leader);
-                if(target == leader){
-                    clearInterval(timer);
-                }
-            },30)
-        }
-    }
+		olLis[i].index = i;
+		olLis[i].onclick = function() {
+			//给目标位置赋值(小盒子对应的大盒子距离顶部的距离)
+			target = ulLis[this.index].offsetTop;
+			clearInterval(timer);
+			timer = setInterval(function() {
+				var step = (target - leader) / 10;
+				step = step > 0 ? Math.ceil(step) : Math.floor(step);
+				leader = leader + step;
+				window.scrollTo(0, leader);
+				if(target == leader) {
+					clearInterval(timer);
+				}
+			}, 30)
+		}
+	}
 </script>

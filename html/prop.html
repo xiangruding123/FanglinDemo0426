@@ -2,7 +2,8 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
+		<title>倒計時</title>
 		<style type="text/css">
 			*{-webkit-tap-highlight-color:rgba(0,0,0,0);}
 		</style>
@@ -18,7 +19,7 @@
 		<script type="text/javascript">
 		
 		function GetRTime(){
-			commitTimeDate = new Date("2017/03/15 00:00:00").getTime() + 24*60*60*1000;//截止时间
+			commitTimeDate = new Date("2017/12/30 00:00:00").getTime() + 24*60*60*1000;//截止时间
 			myDate = new Date();//获取当前时间
 			currentTime=myDate.getTime();//当前时间换成毫秒
 			deadlineTime = commitTimeDate -  currentTime;//时间差
